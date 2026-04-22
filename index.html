@@ -57,10 +57,15 @@
       background: #fff;
     }
 
-    /* ===== HEADER ===== */
+    /* ===== HEADER (全画面ヒーローの上にオーバーレイ) ===== */
     header {
-      padding: 28px 40px 0;
-      background: #fff;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      padding: 24px 40px;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 100%);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -70,57 +75,64 @@
       font-family: 'Caveat', cursive;
       font-size: 28px;
       font-weight: 600;
-      color: var(--text-dark);
+      color: #fff;
       letter-spacing: 1px;
     }
 
     .search-bar {
       display: flex;
       align-items: center;
-      border: 1px solid #ccc;
+      border: 1px solid rgba(255,255,255,0.5);
       border-radius: 4px;
       padding: 8px 14px;
       gap: 8px;
       width: 220px;
+      background: rgba(255,255,255,0.1);
     }
 
     .search-bar input {
       border: none;
       outline: none;
       font-size: 14px;
-      color: #888;
+      color: #fff;
       width: 100%;
       font-family: 'Noto Sans JP', sans-serif;
+      background: transparent;
     }
+    .search-bar input::placeholder { color: rgba(255,255,255,0.65); }
 
-    /* ===== NAV ===== */
+    /* ===== NAV (ヒーターの上にオーバーレイ) ===== */
     nav {
-      background: #f9f9f9;
-      border-top: 1px solid #e8e8e8;
-      border-bottom: 1px solid #e8e8e8;
-      margin-top: 20px;
-      padding: 14px 40px;
+      position: absolute;
+      top: 72px;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background: transparent;
+      border: none;
+      margin-top: 0;
+      padding: 10px 40px;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 48px;
-      position: relative;
     }
 
     nav a {
       text-decoration: none;
-      color: var(--text-dark);
+      color: rgba(255,255,255,0.92);
       font-size: 14px;
       font-weight: 400;
       letter-spacing: 0.5px;
       transition: opacity 0.2s;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.4);
     }
-    nav a:hover { opacity: 0.6; }
+    nav a:hover { opacity: 0.7; }
 
     .nav-twitter {
       position: absolute;
       right: 40px;
-      color: var(--text-dark);
+      color: rgba(255,255,255,0.92);
       text-decoration: none;
     }
 
@@ -178,6 +190,7 @@
       z-index: 2;
       text-align: center;
       padding: 40px 20px;
+      margin-top: 40px; /* header/navの高さ分だけ下にずらす */
     }
 
     .hero-title {
