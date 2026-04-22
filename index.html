@@ -51,13 +51,20 @@
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    /* ===== PAGE LOAD FADE-IN ===== */
+    @keyframes page-fade-in {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
     body {
       font-family: 'Noto Sans JP', sans-serif;
       color: var(--text-dark);
       background: #fff;
+      animation: page-fade-in 0.6s ease forwards;
     }
 
-    /* ===== HEADER (全画面ヒーローの上にオーバーレイ) ===== */
+    /* ===== HEADER (背景ラッパーの上にオーバーレイ) ===== */
     header {
       position: absolute;
       top: 0;
@@ -65,7 +72,7 @@
       right: 0;
       z-index: 50;
       padding: 24px 40px;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 100%);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.50) 0%, rgba(0,0,0,0) 100%);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -101,7 +108,7 @@
     }
     .search-bar input::placeholder { color: rgba(255,255,255,0.65); }
 
-    /* ===== NAV (ヒーターの上にオーバーレイ) ===== */
+    /* ===== NAV (背景ラッパーの上にオーバーレイ) ===== */
     nav {
       position: absolute;
       top: 72px;
@@ -136,23 +143,37 @@
       text-decoration: none;
     }
 
-    /* ===== SHARED IMAGE PANEL ===== */
-    .img-panel {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 65%;
-      height: 100%;
+    /* ===== 背景ラッパー (ヒーロー〜お問い合わせまで1枚の背景画像) ===== */
+    .bg-wrapper {
+      position: relative;
       overflow: hidden;
     }
-    .img-panel img {
+
+    /* 背景画像（1枚・やや拡大） */
+    .page-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      transform: scale(1.15);
+      transform-origin: center top;
+    }
+    .page-bg img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center 10%;
       display: block;
     }
 
-    /* ===== HERO SECTION (全画面背景) ===== */
+    /* 全体オーバーレイ */
+    .page-bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.42);
+      z-index: 1;
+    }
+
+    /* ===== HERO SECTION ===== */
     .hero {
       position: relative;
       width: 100%;
@@ -160,29 +181,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-    }
-    .hero-bg img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 8%;
-      display: block;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.30);
-      z-index: 1;
     }
 
     .hero-content {
@@ -190,7 +188,7 @@
       z-index: 2;
       text-align: center;
       padding: 40px 20px;
-      margin-top: 40px; /* header/navの高さ分だけ下にずらす */
+      margin-top: 40px;
     }
 
     .hero-title {
@@ -216,7 +214,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      border: 2px solid #fff;
+      border: 2px solid rgba(255,255,255,0.85);
       border-radius: 50px;
       padding: 14px 36px;
       font-size: 15px;
@@ -226,50 +224,30 @@
       backdrop-filter: blur(4px);
       transition: all 0.25s;
     }
-    .btn-outline:hover { background: rgba(255,255,255,0.35); }
-
-    /* ===== VIEW TRANSITION ===== */
-    @keyframes tv-fade-in {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
-    @keyframes tv-fade-out {
-      from { opacity: 1; }
-      to   { opacity: 0; }
-    }
-    ::view-transition-old(root) {
-      animation: 300ms ease tv-fade-out;
-    }
-    ::view-transition-new(root) {
-      animation: 300ms ease tv-fade-in;
-    }
+    .btn-outline:hover { background: rgba(255,255,255,0.30); }
 
     /* ===== SERVICE SECTION ===== */
     .service-section {
       position: relative;
       min-height: 540px;
-      background: #c8c6c2;
       display: flex;
       align-items: center;
-      overflow: hidden;
-    }
-
-    .service-section .img-panel img {
-      object-position: center 32%;
     }
 
     .service-content {
       position: relative;
       z-index: 2;
       margin-left: auto;
-      width: 38%;
-      padding: 60px 50px 60px 20px;
+      width: 46%;
+      padding: 60px 50px 60px 40px;
+      background: rgba(0, 0, 0, 0.22);
+      backdrop-filter: blur(6px);
     }
 
     .service-heading {
       font-family: 'Caveat', cursive;
       font-size: 28px;
-      color: var(--dark-navy);
+      color: #fff;
       font-weight: 700;
       margin-bottom: 16px;
     }
@@ -277,28 +255,28 @@
     .service-text {
       font-size: 15px;
       line-height: 1.9;
-      color: var(--text-dark);
+      color: rgba(255,255,255,0.90);
       margin-bottom: 32px;
     }
 
     .btn-service {
       display: inline-block;
-      border: 2px solid var(--terracotta);
+      border: 2px solid rgba(255,255,255,0.75);
       border-radius: 50px;
       padding: 14px 36px;
       font-size: 15px;
-      color: var(--terracotta);
+      color: #fff;
       text-decoration: none;
-      background: rgba(255,255,255,0.72);
+      background: rgba(255,255,255,0.12);
       transition: all 0.25s;
       margin-bottom: 36px;
     }
-    .btn-service:hover { background: var(--terracotta); color: #fff; }
+    .btn-service:hover { background: rgba(255,255,255,0.28); }
 
     .news-blog-label {
       font-family: 'Caveat', cursive;
       font-size: 26px;
-      color: var(--dark-navy);
+      color: rgba(255,255,255,0.90);
       font-weight: 600;
     }
 
@@ -306,39 +284,24 @@
     .contact-section {
       position: relative;
       min-height: 440px;
-      background: #bdbbb7;
       display: flex;
       align-items: center;
-      overflow: hidden;
-    }
-
-    .contact-section .img-panel img {
-      object-position: center 72%;
-    }
-
-    .carousel-dot {
-      position: absolute;
-      bottom: 24px;
-      left: 50%;
-      width: 10px;
-      height: 10px;
-      background: var(--dark-navy);
-      border-radius: 50%;
-      opacity: 0.5;
     }
 
     .contact-content {
       position: relative;
       z-index: 2;
       margin-left: auto;
-      width: 38%;
-      padding: 60px 50px 60px 20px;
+      width: 46%;
+      padding: 60px 50px 60px 40px;
+      background: rgba(0, 0, 0, 0.22);
+      backdrop-filter: blur(6px);
     }
 
     .contact-heading {
       font-family: 'Caveat', cursive;
       font-size: 28px;
-      color: var(--dark-navy);
+      color: #fff;
       font-weight: 700;
       margin-bottom: 16px;
     }
@@ -346,7 +309,7 @@
     .contact-lead {
       font-size: 14px;
       line-height: 1.9;
-      color: var(--text-dark);
+      color: rgba(255,255,255,0.90);
       margin-bottom: 28px;
     }
 
@@ -406,20 +369,36 @@
       font-size: 12px;
       color: #888;
     }
+
+    /* ===== VIEW TRANSITION (ページ遷移フェード) ===== */
+    @keyframes tv-fade-in {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes tv-fade-out {
+      from { opacity: 1; }
+      to   { opacity: 0; }
+    }
+    ::view-transition-old(root) {
+      animation: 300ms ease tv-fade-out;
+    }
+    ::view-transition-new(root) {
+      animation: 300ms ease tv-fade-in;
+    }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- HEADER (bg-wrapperより上にオーバーレイ) -->
   <header>
     <a class='site-logo' href='/' style='text-decoration:none;color:inherit;'>TERRAviolin official site</a>
     <div class="search-bar">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
       <input type="text" placeholder="Search...">
     </div>
   </header>
 
-  <!-- NAV -->
+  <!-- NAV (bg-wrapperより上にオーバーレイ) -->
   <nav>
     <a class='active' href='/'>ホーム</a>
     <a href='/profile'>プロフィール</a>
@@ -431,44 +410,46 @@
     </a>
   </nav>
 
-  <!-- HERO SECTION -->
-  <section class="hero" aria-label="ヒーロー">
-    <div class="hero-bg">
-      <img src="https://static.wixstatic.com/media/41d81a_69ef0a8dea6748708192968b5d2a11db~mv2.jpg" alt="ヴァイオリニスト TERRAの演奏風景">
-    </div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1 class="hero-title">Welcome to<br>TERRAviolin official site</h1>
-      <p class="hero-subtitle">名古屋を拠点に活動するヴァイオリニスト TERRA の公式サイトです。</p>
-      <a class='btn-outline' href='/profile'>プロフィールを見る &nbsp;›</a>
-    </div>
-  </section>
+  <!-- ===== 背景ラッパー: ヒーロー〜お問い合わせまで1枚の背景画像 ===== -->
+  <div class="bg-wrapper">
 
-  <!-- SERVICE SECTION -->
-  <section class="service-section" aria-label="サービス">
-    <div class="img-panel">
-      <img src="https://static.wixstatic.com/media/41d81a_69ef0a8dea6748708192968b5d2a11db~mv2.jpg" alt="サポートヴァイオリン演奏" loading="lazy">
+    <!-- 背景画像（1枚・scale 1.15で拡大） -->
+    <div class="page-bg">
+      <img src="https://static.wixstatic.com/media/41d81a_69ef0a8dea6748708192968b5d2a11db~mv2.jpg"
+           alt="ヴァイオリニスト TERRAの演奏風景">
     </div>
-    <div class="service-content">
-      <h2 class="service-heading">サポートヴァイオリン</h2>
-      <p class="service-text">バンドライブへのサポートヴァイオリン出演、オリジナル楽曲演奏など、ジャンルを問わず柔軟に対応します。楽譜なしでも即興演奏で対応可能です。</p>
-      <a class='btn-service' href='/services'>サービス・料金を見る</a>
-      <div class="news-blog-label"><a href="/blog" style="text-decoration:none;color:inherit;">News blog</a></div>
-    </div>
-  </section>
+    <!-- 全体暗オーバーレイ -->
+    <div class="page-bg-overlay"></div>
 
-  <!-- CONTACT SECTION -->
-  <section class="contact-section" aria-label="お問い合わせ">
-    <div class="img-panel">
-      <img src="https://static.wixstatic.com/media/41d81a_69ef0a8dea6748708192968b5d2a11db~mv2.jpg" alt="お問い合わせ" loading="lazy">
-    </div>
-    <div class="carousel-dot"></div>
-    <div class="contact-content">
-      <h2 class="contact-heading">お問い合わせ</h2>
-      <p class="contact-lead">サポートヴァイオリンのご依頼・ご相談はお気軽にどうぞ。メールまたはTwitterよりご連絡ください。</p>
-      <a class='btn-contact' href='/contact'>お問い合わせはこちら &nbsp;→</a>
-    </div>
-  </section>
+    <!-- HERO SECTION -->
+    <section class="hero" aria-label="ヒーロー">
+      <div class="hero-content">
+        <h1 class="hero-title">Welcome to<br>TERRAviolin official site</h1>
+        <p class="hero-subtitle">名古屋を拠点に活動するヴァイオリニスト TERRA の公式サイトです。</p>
+        <a class='btn-outline' href='/profile'>プロフィールを見る &nbsp;›</a>
+      </div>
+    </section>
+
+    <!-- SERVICE SECTION -->
+    <section class="service-section" aria-label="サービス">
+      <div class="service-content">
+        <h2 class="service-heading">サポートヴァイオリン</h2>
+        <p class="service-text">バンドライブへのサポートヴァイオリン出演、オリジナル楽曲演奏など、ジャンルを問わず柔軟に対応します。楽譜なしでも即興演奏で対応可能です。</p>
+        <a class='btn-service' href='/services'>サービス・料金を見る</a>
+        <div class="news-blog-label"><a href="/blog" style="text-decoration:none;color:inherit;">News blog</a></div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section" aria-label="お問い合わせ">
+      <div class="contact-content">
+        <h2 class="contact-heading">お問い合わせ</h2>
+        <p class="contact-lead">サポートヴァイオリンのご依頼・ご相談はお気軽にどうぞ。メールまたはTwitterよりご連絡ください。</p>
+        <a class='btn-contact' href='/contact'>お問い合わせはこちら &nbsp;→</a>
+      </div>
+    </section>
+
+  </div><!-- /.bg-wrapper -->
 
   <!-- FOOTER -->
   <footer>

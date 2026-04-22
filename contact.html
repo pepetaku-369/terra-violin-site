@@ -29,7 +29,12 @@
       --text-dark: #2a2a2a;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Noto Sans JP', sans-serif; color: var(--text-dark); background: #fff; }
+    @keyframes page-fade-in { from { opacity: 0; } to { opacity: 1; } }
+    body { font-family: 'Noto Sans JP', sans-serif; color: var(--text-dark); background: #fff; animation: page-fade-in 0.6s ease forwards; }
+    @keyframes tv-fade-in { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes tv-fade-out { from { opacity: 1; } to { opacity: 0; } }
+    ::view-transition-old(root) { animation: 300ms ease tv-fade-out; }
+    ::view-transition-new(root) { animation: 300ms ease tv-fade-in; }
 
     header {
       padding: 28px 40px 0;
@@ -191,5 +196,16 @@
     <p class="copyright">©2022 TERRA_violin official site</p>
   </footer>
 
+  <script>
+    document.querySelectorAll('a[href]').forEach(link => {
+      const href = link.getAttribute('href');
+      if (!href || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('#')) return;
+      link.addEventListener('click', e => {
+        if (!document.startViewTransition) return;
+        e.preventDefault();
+        document.startViewTransition(() => { window.location.href = href; });
+      });
+    });
+  </script>
 </body>
 </html>
