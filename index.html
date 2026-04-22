@@ -140,65 +140,96 @@
       display: block;
     }
 
-    /* ===== HERO SECTION ===== */
+    /* ===== HERO SECTION (全画面背景) ===== */
     .hero {
       position: relative;
-      min-height: 580px;
-      background: #d6cfc6;
+      width: 100%;
+      height: 100vh;
       display: flex;
       align-items: center;
+      justify-content: center;
       overflow: hidden;
     }
 
-    .hero .img-panel { width: 52%; }
-    .hero .img-panel img {
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       object-position: center 8%;
-      filter: blur(3px) brightness(0.92);
-      transform: scale(1.04); /* hide blur edges */
+      display: block;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.30);
+      z-index: 1;
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      margin-left: auto;
-      width: 55%;
-      padding: 60px 60px 60px 20px;
-      text-align: right;
+      text-align: center;
+      padding: 40px 20px;
     }
 
     .hero-title {
       font-family: 'Caveat', cursive;
       font-size: 62px;
       font-weight: 700;
-      color: var(--dark-navy);
+      color: #fff;
       line-height: 1.15;
-      text-shadow: 1px 1px 6px rgba(255,255,255,0.4);
+      text-shadow: 1px 2px 14px rgba(0,0,0,0.5);
       margin-bottom: 24px;
     }
 
     .hero-subtitle {
       font-family: 'Caveat', cursive;
       font-size: 20px;
-      color: var(--dark-navy);
+      color: rgba(255,255,255,0.92);
       margin-bottom: 32px;
       letter-spacing: 2px;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.4);
     }
 
     .btn-outline {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      border: 2px solid var(--text-dark);
+      border: 2px solid #fff;
       border-radius: 50px;
       padding: 14px 36px;
       font-size: 15px;
-      color: var(--text-dark);
+      color: #fff;
       text-decoration: none;
-      background: rgba(255,255,255,0.55);
+      background: rgba(255,255,255,0.15);
       backdrop-filter: blur(4px);
       transition: all 0.25s;
     }
-    .btn-outline:hover { background: var(--text-dark); color: #fff; }
+    .btn-outline:hover { background: rgba(255,255,255,0.35); }
+
+    /* ===== VIEW TRANSITION ===== */
+    @keyframes tv-fade-in {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes tv-fade-out {
+      from { opacity: 1; }
+      to   { opacity: 0; }
+    }
+    ::view-transition-old(root) {
+      animation: 300ms ease tv-fade-out;
+    }
+    ::view-transition-new(root) {
+      animation: 300ms ease tv-fade-in;
+    }
 
     /* ===== SERVICE SECTION ===== */
     .service-section {
@@ -389,9 +420,10 @@
 
   <!-- HERO SECTION -->
   <section class="hero" aria-label="ヒーロー">
-    <div class="img-panel">
+    <div class="hero-bg">
       <img src="https://static.wixstatic.com/media/41d81a_69ef0a8dea6748708192968b5d2a11db~mv2.jpg" alt="ヴァイオリニスト TERRAの演奏風景">
     </div>
+    <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1 class="hero-title">Welcome to<br>TERRAviolin official site</h1>
       <p class="hero-subtitle">名古屋を拠点に活動するヴァイオリニスト TERRA の公式サイトです。</p>
@@ -436,5 +468,19 @@
     <p class="copyright">©2022 TERRA_violin official site</p>
   </footer>
 
+  <script>
+    // View Transition API: ナビリンクのフェード遷移
+    document.querySelectorAll('a[href]').forEach(link => {
+      const href = link.getAttribute('href');
+      if (!href || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('#')) return;
+      link.addEventListener('click', e => {
+        if (!document.startViewTransition) return;
+        e.preventDefault();
+        document.startViewTransition(() => {
+          window.location.href = href;
+        });
+      });
+    });
+  </script>
 </body>
 </html>
