@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>サービス・料金 | TERRAviolin Official Site</title>
+  <meta name="description" content="TERRAのサポートヴァイオリンサービス。1〜2曲¥10,000〜ツアー同行¥100,000〜まで、ライブやイベントに柔軟対応。楽譜なしでも即興演奏可能。">
+  <meta name="keywords" content="サポートヴァイオリン, バイオリン演奏依頼, ライブ出演, バンドサポート, 料金, TERRA">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://terra-violin.netlify.app/services">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://terra-violin.netlify.app/services">
+  <meta property="og:title" content="サービス・料金 | TERRAviolin Official Site">
+  <meta property="og:description" content="TERRAのサポートヴァイオリンサービス。1〜2曲¥10,000〜ツアー同行¥100,000〜まで柔軟対応。楽譜なしでも即興演奏可能。">
+  <meta property="og:image" content="https://static.wixstatic.com/media/41d81a_7e309edddf8a4e2c966a3af1fdec5867~mv2.jpg">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="TERRAviolin Official Site">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@terra_violin">
+  <meta name="twitter:title" content="サービス・料金 | TERRAviolin Official Site">
+  <meta name="twitter:description" content="TERRAのサポートヴァイオリンサービス。1〜2曲¥10,000〜ツアー同行¥100,000〜まで柔軟対応。楽譜なしでも即興演奏可能。">
+  <meta name="twitter:image" content="https://static.wixstatic.com/media/41d81a_7e309edddf8a4e2c966a3af1fdec5867~mv2.jpg">
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "サポートヴァイオリン",
+    "provider": {"@type": "Person", "name": "TERRA", "alternateName": "TERRAviolin", "url": "https://terra-violin.netlify.app/"},
+    "description": "バンドのライブでヴァイオリンの演奏が欲しい方へ。楽譜なしでも即興演奏で対応します。",
+    "areaServed": {"@type": "City", "name": "名古屋"},
+    "offers": [
+      {"@type":"Offer","name":"1〜2曲","price":"10000","priceCurrency":"JPY"},
+      {"@type":"Offer","name":"3曲","price":"20000","priceCurrency":"JPY"},
+      {"@type":"Offer","name":"4〜5曲","price":"30000","priceCurrency":"JPY"},
+      {"@type":"Offer","name":"6曲以上","price":"40000","priceCurrency":"JPY"},
+      {"@type":"Offer","name":"1day","price":"60000","priceCurrency":"JPY"},
+      {"@type":"Offer","name":"ツアーライブ同行","price":"100000","priceCurrency":"JPY"}
+    ]
+  }</script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --dark-navy: #2c3e6b;
+      --terracotta: #c0603a;
+      --cyan: #00bcd4;
+      --forest-green: #3a6645;
+      --text-dark: #2a2a2a;
+      --light-bg: #f9f7f4;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Noto Sans JP', sans-serif; color: var(--text-dark); background: #fff; }
+
+    /* HEADER */
+    header {
+      padding: 28px 40px 0;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .site-logo {
+      font-family: 'Caveat', cursive;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--text-dark);
+      text-decoration: none;
+    }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 8px 14px;
+      gap: 8px;
+      width: 220px;
+    }
+    .search-bar input { border: none; outline: none; font-size: 14px; color: #888; width: 100%; }
+
+    /* NAV */
+    nav {
+      background: #f9f9f9;
+      border-top: 1px solid #e8e8e8;
+      border-bottom: 1px solid #e8e8e8;
+      margin-top: 20px;
+      padding: 14px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      position: relative;
+    }
+    nav a { text-decoration: none; color: var(--text-dark); font-size: 14px; transition: opacity 0.2s; }
+    nav a:hover { opacity: 0.6; }
+    nav a.active { border-bottom: 2px solid var(--text-dark); padding-bottom: 2px; }
+    .nav-twitter { position: absolute; right: 40px; color: var(--text-dark); text-decoration: none; }
+
+    /* SERVICE HERO */
+    .service-hero {
+      position: relative;
+      height: 420px;
+      overflow: hidden;
+    }
+    .service-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+    }
+    .service-hero-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+    }
+    .service-hero-title {
+      background: rgba(255, 255, 255, 0.88);
+      padding: 24px 40px;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--cyan);
+      letter-spacing: 2px;
+    }
+
+    /* DESCRIPTION */
+    .service-desc {
+      padding: 60px;
+      max-width: 860px;
+    }
+    .service-desc h2 {
+      font-family: 'Caveat', cursive;
+      font-size: 32px;
+      color: var(--dark-navy);
+      margin-bottom: 24px;
+    }
+    .service-desc p {
+      font-size: 15px;
+      line-height: 2;
+      margin-bottom: 16px;
+    }
+    .service-desc ul {
+      list-style: none;
+      margin-top: 20px;
+    }
+    .service-desc ul li {
+      font-size: 14px;
+      line-height: 1.9;
+      padding: 6px 0;
+      border-bottom: 1px solid #eee;
+    }
+    .service-desc ul li::before {
+      content: '・';
+      color: var(--terracotta);
+    }
+
+    /* PRICING GRID */
+    .pricing-section {
+      background: var(--light-bg);
+      padding: 20px 40px 60px;
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .pricing-card {
+      background: #fff;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .pricing-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .pricing-card-body {
+      padding: 20px 24px 24px;
+    }
+    .pricing-name {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+    .pricing-price {
+      font-size: 15px;
+      color: #555;
+    }
+
+    /* CONTACT FORM */
+    .contact-form-section {
+      padding: 60px;
+      max-width: 700px;
+    }
+    .contact-form-section h2 {
+      font-family: 'Caveat', cursive;
+      font-size: 30px;
+      color: var(--dark-navy);
+      margin-bottom: 8px;
+    }
+    .contact-form-section p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 32px;
+    }
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 10px 14px;
+      font-size: 14px;
+      font-family: 'Noto Sans JP', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--dark-navy); }
+    .form-group textarea { height: 120px; resize: vertical; }
+    .btn-submit {
+      background: var(--dark-navy);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 12px 40px;
+      font-size: 14px;
+      cursor: pointer;
+      font-family: 'Noto Sans JP', sans-serif;
+      transition: opacity 0.2s;
+    }
+    .btn-submit:hover { opacity: 0.85; }
+
+    /* FOOTER */
+    footer {
+      background: #fff;
+      padding: 40px 20px 32px;
+      text-align: center;
+      border-top: 1px solid #eee;
+    }
+    footer .email { font-size: 14px; color: var(--text-dark); text-decoration: underline; margin-bottom: 20px; display: block; }
+    .social-icons { display: flex; justify-content: center; gap: 20px; margin-bottom: 24px; }
+    .social-icons a { color: var(--text-dark); text-decoration: none; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: background 0.2s; }
+    .social-icons a:hover { background: #f0f0f0; }
+    footer .copyright { font-size: 12px; color: #888; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a class='site-logo' href='/'>TERRAviolin official site</a>
+    <div class="search-bar">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" placeholder="Search...">
+    </div>
+  </header>
+
+  <nav>
+    <a href='/'>ホーム</a>
+    <a href='/profile'>プロフィール</a>
+    <a class='active' href='/services'>サービス</a>
+    <a href='/contact'>お問合せ</a>
+    <a href='/blog'>ブログ</a>
+    <a href="https://twitter.com/terra_violin" class="nav-twitter" aria-label="Twitter">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+    </a>
+  </nav>
+
+  <!-- SERVICE HERO -->
+  <section class="service-hero">
+    <img src="https://static.wixstatic.com/media/41d81a_7e309edddf8a4e2c966a3af1fdec5867~mv2.jpg" alt="TERRAviolin サポートヴァイオリン" loading="lazy">
+    <div class="service-hero-overlay">
+      <div class="service-hero-title">TERRAの提供サービス</div>
+    </div>
+  </section>
+
+  <!-- DESCRIPTION -->
+  <section class="service-desc">
+    <h2>サポートヴァイオリン</h2>
+    <p>バンドのライブでヴァイオリンの演奏が欲しい、でもヴァイオリンって譜面渡さないといけないのがハードル高いな。とお思いのあなた！</p>
+    <p>TERRAのサポートヴァイオリンでは楽譜はプラスαとして考えてもらって大丈夫です！ リハや本番当日に軽く打ち合わせするのみで、即興的にあなたの曲を引き立てるヴァイオリンの音を奏でます。</p>
+    <ul>
+      <li>オリジナル楽曲で特定の旋律の演奏をご依頼の際は音源か楽譜が必要になります。ライブ一週間前までに音源または楽譜データを確認せさて下さい。練習しておきます。</li>
+      <li>セットリストと演奏場所をお教え下さい。</li>
+      <li>本番前に必ず打ち合わせをさせて下さい。（ぶっつけ本番は不可）</li>
+      <li>交通費が片道5,000円を越える場合は別途請求させていただきます。</li>
+      <li>領収書の必要有無もお教えください。</li>
+    </ul>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-section">
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <img src="https://static.wixstatic.com/media/41d81a_2c62c17e68f144faaee17cabb4f4db94~mv2.jpg" alt="1~2曲" loading="lazy">
+        <div class="pricing-card-body">
+          <div class="pricing-name">1〜2曲</div>
+          <div class="pricing-price">¥10,000</div>
+        </div>
+      </div>
+      <div class="pricing-card">
+        <img src="https://static.wixstatic.com/media/41d81a_d0e358e9de2141e9a3098c27655f0f9c~mv2.jpg" alt="3曲" loading="lazy">
+        <div class="pricing-card-body">
+          <div class="pricing-name">3曲</div>
+          <div class="pricing-price">¥20,000</div>
+        </div>
+      </div>
+      <div class="pricing-card">
+        <img src="https://static.wixstatic.com/media/41d81a_4a58f6458110483ab7e324d0f107651b~mv2.jpg" alt="4~5曲" loading="lazy">
+        <div class="pricing-card-body">
+          <div class="pricing-name">4〜5曲</div>
+          <div class="pricing-price">¥30,000</div>
+        </div>
+      </div>
+      <div class="pricing-card">
+        <img src="https://static.wixstatic.com/media/41d81a_59741e50520142f290506db047c1f630~mv2.jpg" alt="6曲以上" loading="lazy">
+        <div class="pricing-card-body">
+          <div class="pricing-name">6曲以上</div>
+          <div class="pricing-price">¥40,000（特に拘束時間が決められていない場合）</div>
+        </div>
+      </div>
+      <div class="pricing-card">
+        <img src="https://static.wixstatic.com/media/41d81a_0ecfcaa810d7479a914188334097dcdf~mv2.jpg" alt="1day" loading="lazy">
+        <div class="pricing-card-body">
+          <div class="pricing-name">1day</div>
+          <div class="pricing-price">¥60,000（イベント、ライブの同行など拘束時間がある場合）</div>
+        </div>
+      </div>
+      <div class="pricing-card">
+        <img src="https://static.wixstatic.com/media/41d81a_07f0a65131ca413b9b8062582b58145a~mv2.jpg" alt="ツアーライブ同行" loading="lazy">
+        <div class="pricing-card-body">
+          <div class="pricing-name">ツアーライブ同行</div>
+          <div class="pricing-price">¥100,000〜 応相談</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM -->
+  <section class="contact-form-section">
+    <h2>お問い合わせ</h2>
+    <p>ご興味をお持ちいただけましたら、是非お問い合わせください。</p>
+    <div class="form-group">
+      <label>姓名</label>
+      <input type="text" placeholder="">
+    </div>
+    <div class="form-group">
+      <label>メールアドレス</label>
+      <input type="email" placeholder="">
+    </div>
+    <div class="form-group">
+      <label>メッセージ</label>
+      <textarea></textarea>
+    </div>
+    <button class="btn-submit">送信</button>
+  </section>
+
+  <footer>
+    <a href="mailto:violin.tkssbkw@gmail.com" class="email">violin.tkssbkw@gmail.com</a>
+    <div class="social-icons">
+      <a href="https://twitter.com/terra_violin" aria-label="Twitter">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+      </a>
+    </div>
+    <p class="copyright">©2022 TERRA_violin official site</p>
+  </footer>
+
+</body>
+</html>
