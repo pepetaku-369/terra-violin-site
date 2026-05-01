@@ -24,18 +24,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
-  <!-- X (Twitter) widgets.js: bodyより先に読み込むことでiframe初期化タイミングを確保 -->
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   <style>
     :root { color-scheme: light; --dark-navy: #2c3e6b; --terracotta: #c0603a; --text-dark: #2a2a2a; --light-bg: #f9f7f4; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    /* bodyはアニメーションなし（opacity:0でwidgets.jsのサイズ計算が狂う対策） */
-    body { font-family: 'Noto Sans JP', sans-serif; color: var(--text-dark); background: #fff; }
-
-    /* フェードインはmain要素に適用 */
+    body { font-family: 'Noto Sans JP', sans-serif; color: var(--text-dark); background: #fff; animation: page-fade-in 0.6s ease forwards; }
     @keyframes page-fade-in { from { opacity: 0; } to { opacity: 1; } }
-    main { animation: page-fade-in 0.6s ease forwards; }
 
     @keyframes tv-fade-in { from { opacity: 0; } to { opacity: 1; } }
     @keyframes tv-fade-out { from { opacity: 1; } to { opacity: 0; } }
@@ -56,18 +50,17 @@
     .page-title { font-family: 'Caveat', cursive; font-size: 48px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
     .page-subtitle { font-size: 15px; color: #888; margin-bottom: 40px; }
 
-    /* Twitter/Xフィードラッパー */
-    .twitter-feed-wrap {
+    /* XPublish iframeラッパー */
+    .xpublish-feed-wrap {
       border: 1px solid #e1e8ed;
       border-radius: 12px;
       overflow: hidden;
-      min-height: 400px; /* widgetsが0×0になった場合のフォールバック表示領域 */
     }
-    /* iframeに明示的なサイズを強制付与 */
-    .twitter-feed-wrap iframe {
-      width: 100% !important;
-      min-height: 600px !important;
-      display: block !important;
+    .xpublish-feed-wrap iframe {
+      width: 100%;
+      height: 700px;
+      border: none;
+      display: block;
     }
 
     footer { background: #f9f7f4; padding: 40px 40px 30px; text-align: center; margin-top: 80px; border-top: 1px solid #e8e8e8; }
@@ -99,16 +92,13 @@
   <main class="sns-page">
     <h1 class="page-title">SNS</h1>
     <p class="page-subtitle">@terra_violin の最新投稿</p>
-    <div class="twitter-feed-wrap">
-      <a class="twitter-timeline"
-         href="https://twitter.com/terra_violin"
-         data-width="100%"
-         data-height="700"
-         data-lang="ja"
-         data-theme="light"
-         data-chrome="noheader nofooter noborders">
-        @terra_violin のツイートを読み込み中...
-      </a>
+    <div class="xpublish-feed-wrap">
+      <iframe
+        src="https://xpublish.io/embed/terra_violin"
+        title="@terra_violin のXフィード"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
     </div>
   </main>
 
@@ -121,13 +111,6 @@
   </footer>
 
   <script>
-    // widgets.js 読み込み完了後に再初期化（非同期ロード対策）
-    window.addEventListener('load', function() {
-      if (window.twttr && window.twttr.widgets) {
-        window.twttr.widgets.load(document.querySelector('.twitter-feed-wrap'));
-      }
-    });
-
     // View Transition API
     document.querySelectorAll('a[href]').forEach(link => {
       const href = link.getAttribute('href');

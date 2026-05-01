@@ -166,36 +166,58 @@
     }
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-      max-width: 900px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      max-width: 960px;
       margin: 0 auto;
     }
     .pricing-card {
       background: #fff;
-      border-radius: 4px;
+      border-radius: 8px;
+      overflow: visible; /* タグが外にはみ出るためvisible */
+      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+      position: relative;
+    }
+    .pricing-card-img-wrap {
+      position: relative;
       overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      border-radius: 8px 8px 0 0;
     }
     .pricing-card img {
       width: 100%;
-      height: 240px;
+      height: 200px;
       object-fit: cover;
       object-position: center top;
       display: block;
     }
+    /* 料金タグ：画像下部に少し重なる */
+    .pricing-tag {
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--terracotta);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 6px 18px;
+      border-radius: 20px;
+      white-space: nowrap;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+      z-index: 2;
+    }
     .pricing-card-body {
-      padding: 20px 24px 24px;
+      padding: 28px 18px 20px;
+      text-align: center;
     }
     .pricing-name {
-      font-size: 20px;
+      font-size: 17px;
       font-weight: 600;
       color: var(--text-dark);
-      margin-bottom: 8px;
+      margin-bottom: 0;
     }
     .pricing-price {
-      font-size: 15px;
-      color: #555;
+      display: none; /* 料金はタグに移動 */
     }
 
     /* CONTACT FORM */
@@ -309,45 +331,57 @@
   <section class="pricing-section">
     <div class="pricing-grid">
       <div class="pricing-card">
-        <img src="https://static.wixstatic.com/media/41d81a_2c62c17e68f144faaee17cabb4f4db94~mv2.jpg" alt="1~2曲" loading="lazy">
+        <div class="pricing-card-img-wrap">
+          <img src="https://static.wixstatic.com/media/41d81a_2c62c17e68f144faaee17cabb4f4db94~mv2.jpg" alt="1~2曲" loading="lazy">
+          <div class="pricing-tag">¥10,000</div>
+        </div>
         <div class="pricing-card-body">
           <div class="pricing-name">1〜2曲</div>
-          <div class="pricing-price">¥10,000</div>
         </div>
       </div>
       <div class="pricing-card">
-        <img src="https://static.wixstatic.com/media/41d81a_d0e358e9de2141e9a3098c27655f0f9c~mv2.jpg" alt="3曲" loading="lazy">
+        <div class="pricing-card-img-wrap">
+          <img src="https://static.wixstatic.com/media/41d81a_d0e358e9de2141e9a3098c27655f0f9c~mv2.jpg" alt="3曲" loading="lazy">
+          <div class="pricing-tag">¥20,000</div>
+        </div>
         <div class="pricing-card-body">
           <div class="pricing-name">3曲</div>
-          <div class="pricing-price">¥20,000</div>
         </div>
       </div>
       <div class="pricing-card">
-        <img src="https://static.wixstatic.com/media/41d81a_4a58f6458110483ab7e324d0f107651b~mv2.jpg" alt="4~5曲" loading="lazy">
+        <div class="pricing-card-img-wrap">
+          <img src="https://static.wixstatic.com/media/41d81a_4a58f6458110483ab7e324d0f107651b~mv2.jpg" alt="4~5曲" loading="lazy">
+          <div class="pricing-tag">¥30,000</div>
+        </div>
         <div class="pricing-card-body">
           <div class="pricing-name">4〜5曲</div>
-          <div class="pricing-price">¥30,000</div>
         </div>
       </div>
       <div class="pricing-card">
-        <img src="https://static.wixstatic.com/media/41d81a_59741e50520142f290506db047c1f630~mv2.jpg" alt="6曲以上" loading="lazy">
+        <div class="pricing-card-img-wrap">
+          <img src="https://static.wixstatic.com/media/41d81a_59741e50520142f290506db047c1f630~mv2.jpg" alt="6曲以上" loading="lazy">
+          <div class="pricing-tag">¥40,000</div>
+        </div>
         <div class="pricing-card-body">
           <div class="pricing-name">6曲以上</div>
-          <div class="pricing-price">¥40,000（特に拘束時間が決められていない場合）</div>
         </div>
       </div>
       <div class="pricing-card">
-        <img src="https://static.wixstatic.com/media/41d81a_0ecfcaa810d7479a914188334097dcdf~mv2.jpg" alt="1day" loading="lazy">
+        <div class="pricing-card-img-wrap">
+          <img src="https://static.wixstatic.com/media/41d81a_0ecfcaa810d7479a914188334097dcdf~mv2.jpg" alt="1day" loading="lazy">
+          <div class="pricing-tag">¥60,000</div>
+        </div>
         <div class="pricing-card-body">
           <div class="pricing-name">1day</div>
-          <div class="pricing-price">¥60,000（イベント、ライブの同行など拘束時間がある場合）</div>
         </div>
       </div>
       <div class="pricing-card">
-        <img src="https://static.wixstatic.com/media/41d81a_07f0a65131ca413b9b8062582b58145a~mv2.jpg" alt="ツアーライブ同行" loading="lazy">
+        <div class="pricing-card-img-wrap">
+          <img src="https://static.wixstatic.com/media/41d81a_07f0a65131ca413b9b8062582b58145a~mv2.jpg" alt="ツアーライブ同行" loading="lazy">
+          <div class="pricing-tag">¥100,000〜</div>
+        </div>
         <div class="pricing-card-body">
           <div class="pricing-name">ツアーライブ同行</div>
-          <div class="pricing-price">¥100,000〜 応相談</div>
         </div>
       </div>
     </div>
