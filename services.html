@@ -180,7 +180,7 @@
     }
     .pricing-card-img-wrap {
       position: relative;
-      overflow: hidden;
+      overflow: visible; /* タグがはみ出せるようvisibleに変更 */
       border-radius: 8px 8px 0 0;
     }
     .pricing-card img {
@@ -190,25 +190,26 @@
       object-fit: cover;
       object-position: center top;
       display: block;
+      border-radius: 8px 8px 0 0; /* overflow:visibleにしたためimgに直接付与 */
     }
-    /* 料金タグ：画像下部に少し重なる */
+    /* 料金タグ：画像下辺中央に重なる */
     .pricing-tag {
       position: absolute;
-      bottom: -15px;
+      bottom: -16px;
       left: 50%;
       transform: translateX(-50%);
       background: var(--terracotta);
       color: #fff;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 700;
-      padding: 6px 18px;
+      padding: 5px 18px;
       border-radius: 20px;
       white-space: nowrap;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
-      z-index: 2;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.28);
+      z-index: 10;
     }
     .pricing-card-body {
-      padding: 28px 18px 20px;
+      padding: 28px 18px 20px; /* タグ(-16px)＋余白分を上パディングで確保 */
       text-align: center;
     }
     .pricing-name {
