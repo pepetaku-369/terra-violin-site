@@ -24,8 +24,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
-  <!-- widgets.jsをheadで同期読み込み（bodyのopacity:0アニメーションなしの状態で初期化させる） -->
-  <script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <!-- widgets.jsはbody末尾で読み込む（headでの同期読み込みはページ全体をブロックするため） -->
+
   <style>
     :root { color-scheme: light; --dark-navy: #2c3e6b; --terracotta: #c0603a; --text-dark: #2a2a2a; --light-bg: #f9f7f4; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -112,5 +112,6 @@
       });
     });
   </script>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>
