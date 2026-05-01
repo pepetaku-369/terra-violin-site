@@ -80,18 +80,27 @@
 
     /* CONTACT MAIN */
     .contact-main {
-      display: flex;
-      min-height: 520px;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 20px 80px;
     }
+
+    /* ヒーロー画像：横長、上部配置 */
+    .contact-hero-img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      border-radius: 0 0 8px 8px;
+      margin-bottom: 48px;
+    }
+
     .contact-info-col {
-      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 60px;
       text-align: center;
-      background: #fff;
     }
     .contact-page-title {
       font-size: 32px;
@@ -121,18 +130,6 @@
     .contact-phone {
       font-size: 15px;
       color: var(--text-dark);
-    }
-    .contact-photo-col {
-      flex: 1;
-      overflow: hidden;
-      max-width: 55%;
-    }
-    .contact-photo-col img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
     }
 
     /* FOOTER */
@@ -171,6 +168,9 @@
   </nav>
 
   <section class="contact-main">
+    <img class="contact-hero-img"
+         src="https://static.wixstatic.com/media/41d81a_30e334d47efe456f838bd2b6094b4151~mv2.jpg"
+         alt="TERRA violin" loading="lazy">
     <div class="contact-info-col">
       <h1 class="contact-page-title">お問合せ</h1>
       <div class="contact-social">
@@ -180,9 +180,6 @@
       </div>
       <a href="mailto:violin.tkssbkw@gmail.com" class="contact-email">violin.tkssbkw@gmail.com</a>
       <p class="contact-phone">08016130859</p>
-    </div>
-    <div class="contact-photo-col">
-      <img src="https://static.wixstatic.com/media/41d81a_30e334d47efe456f838bd2b6094b4151~mv2.jpg" alt="TERRA violin" loading="lazy">
     </div>
   </section>
 
