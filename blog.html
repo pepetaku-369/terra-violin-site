@@ -24,8 +24,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
-  <!-- widgets.jsはbody末尾で読み込む（headでの同期読み込みはページ全体をブロックするため） -->
-
   <style>
     :root { color-scheme: light; --dark-navy: #2c3e6b; --terracotta: #c0603a; --text-dark: #2a2a2a; --light-bg: #f9f7f4; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -87,9 +85,8 @@
   <main class="sns-page">
     <h1 class="page-title">SNS</h1>
     <p class="page-subtitle">@terra_violin の最新投稿</p>
-    <div class="twitter-feed-wrap">
-      <a class="twitter-timeline" data-lang="ja" data-width="300" data-height="250" data-dnt="true" href="https://twitter.com/terra_violin?ref_src=twsrc%5Etfw">Tweets by terra_violin</a>
-    </div>
+    <div class="sk-ww-twitter-feed" data-embed-id="25677744"></div>
+    <script src="https://widgets.sociablekit.com/twitter-feed/widget.js" defer></script>
   </main>
 
   <footer>
@@ -112,6 +109,5 @@
       });
     });
   </script>
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>
