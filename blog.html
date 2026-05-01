@@ -24,16 +24,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <!-- widgets.jsをheadで同期読み込み（bodyのopacity:0アニメーションなしの状態で初期化させる） -->
+  <script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   <style>
     :root { color-scheme: light; --dark-navy: #2c3e6b; --terracotta: #c0603a; --text-dark: #2a2a2a; --light-bg: #f9f7f4; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    /* bodyはアニメーションなし（opacity:0でwidgets.jsのサイズ計算が狂う対策） */
+    /* opacity アニメーションは一切使わない（widgets.jsのiframe初期化を守るため） */
     body { font-family: 'Noto Sans JP', sans-serif; color: var(--text-dark); background: #fff; }
-
-    /* フェードインはmainに適用 */
-    @keyframes page-fade-in { from { opacity: 0; } to { opacity: 1; } }
-    main { animation: page-fade-in 0.6s ease forwards; }
 
     @keyframes tv-fade-in { from { opacity: 0; } to { opacity: 1; } }
     @keyframes tv-fade-out { from { opacity: 1; } to { opacity: 0; } }
@@ -56,15 +54,8 @@
 
     /* Twitter/Xタイムラインラッパー */
     .twitter-feed-wrap {
-      border: 1px solid #e1e8ed;
       border-radius: 12px;
-      overflow: hidden;
-      min-height: 400px;
-    }
-    .twitter-feed-wrap iframe {
-      width: 100% !important;
-      min-height: 600px !important;
-      display: block !important;
+      overflow: visible; /* overflow:hiddenはiframe生成を妨げる場合がある */
     }
 
     footer { background: #f9f7f4; padding: 40px 40px 30px; text-align: center; margin-top: 80px; border-top: 1px solid #e8e8e8; }
@@ -121,6 +112,5 @@
       });
     });
   </script>
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>
