@@ -28,8 +28,12 @@
     :root { color-scheme: light; --dark-navy: #2c3e6b; --terracotta: #c0603a; --text-dark: #2a2a2a; --light-bg: #f9f7f4; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body { font-family: 'Noto Sans JP', sans-serif; color: var(--text-dark); background: #fff; animation: page-fade-in 0.6s ease forwards; }
+    /* bodyはアニメーションなし（opacity:0でwidgets.jsのサイズ計算が狂う対策） */
+    body { font-family: 'Noto Sans JP', sans-serif; color: var(--text-dark); background: #fff; }
+
+    /* フェードインはmainに適用 */
     @keyframes page-fade-in { from { opacity: 0; } to { opacity: 1; } }
+    main { animation: page-fade-in 0.6s ease forwards; }
 
     @keyframes tv-fade-in { from { opacity: 0; } to { opacity: 1; } }
     @keyframes tv-fade-out { from { opacity: 1; } to { opacity: 0; } }
@@ -50,17 +54,17 @@
     .page-title { font-family: 'Caveat', cursive; font-size: 48px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
     .page-subtitle { font-size: 15px; color: #888; margin-bottom: 40px; }
 
-    /* XPublish iframeラッパー */
-    .xpublish-feed-wrap {
+    /* Twitter/Xタイムラインラッパー */
+    .twitter-feed-wrap {
       border: 1px solid #e1e8ed;
       border-radius: 12px;
       overflow: hidden;
+      min-height: 400px;
     }
-    .xpublish-feed-wrap iframe {
-      width: 100%;
-      height: 700px;
-      border: none;
-      display: block;
+    .twitter-feed-wrap iframe {
+      width: 100% !important;
+      min-height: 600px !important;
+      display: block !important;
     }
 
     footer { background: #f9f7f4; padding: 40px 40px 30px; text-align: center; margin-top: 80px; border-top: 1px solid #e8e8e8; }
@@ -92,13 +96,8 @@
   <main class="sns-page">
     <h1 class="page-title">SNS</h1>
     <p class="page-subtitle">@terra_violin の最新投稿</p>
-    <div class="xpublish-feed-wrap">
-      <iframe
-        src="https://xpublish.io/embed/terra_violin"
-        title="@terra_violin のXフィード"
-        allowfullscreen
-        loading="lazy">
-      </iframe>
+    <div class="twitter-feed-wrap">
+      <a class="twitter-timeline" href="https://twitter.com/terra_violin?ref_src=twsrc%5Etfw">Tweets by terra_violin</a>
     </div>
   </main>
 
@@ -122,5 +121,7 @@
       });
     });
   </script>
+  <!-- widgets.jsはbody末尾に配置（bodyのopacity:0アニメーションなしでiframe初期化が正常動作） -->
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>
