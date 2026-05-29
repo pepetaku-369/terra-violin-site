@@ -391,21 +391,39 @@
 
   <!-- CONTACT FORM -->
   <section class="contact-form-section">
-    <h2>お問い合わせ</h2>
-    <p>ご興味をお持ちいただけましたら、是非お問い合わせください。</p>
-    <div class="form-group">
-      <label>姓名</label>
-      <input type="text" placeholder="">
-    </div>
-    <div class="form-group">
-      <label>メールアドレス</label>
-      <input type="email" placeholder="">
-    </div>
-    <div class="form-group">
-      <label>メッセージ</label>
-      <textarea></textarea>
-    </div>
-    <button class="btn-submit">送信</button>
+    <h2>サポートヴァイオリン 申し込み</h2>
+    <p>ご希望のプランと公演情報をご記入の上、お申し込みください。</p>
+    <form name="support-violin" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="support-violin">
+      <p style="display:none"><input name="bot-field"></p>
+
+      <div class="form-group">
+        <label>プラン選択</label>
+        <select name="plan" required style="width:100%;border:1px solid #ddd;border-radius:4px;padding:10px 14px;font-size:14px;font-family:'Noto Sans JP',sans-serif;outline:none;transition:border-color 0.2s;background:#fff;color:#2a2a2a;">
+          <option value="" disabled selected>選択してください</option>
+          <option value="1〜2曲（¥10,000）">1〜2曲（¥10,000）</option>
+          <option value="3曲（¥20,000）">3曲（¥20,000）</option>
+          <option value="4〜5曲（¥30,000）">4〜5曲（¥30,000）</option>
+          <option value="6曲以上（¥40,000）">6曲以上（¥40,000）</option>
+          <option value="1day（¥60,000）">1day（¥60,000）</option>
+          <option value="ツアーライブ同行（¥100,000〜）">ツアーライブ同行（¥100,000〜）</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>姓名</label>
+        <input type="text" name="name" placeholder="山田 太郎" required>
+      </div>
+      <div class="form-group">
+        <label>メールアドレス</label>
+        <input type="email" name="email" placeholder="example@mail.com" required>
+      </div>
+      <div class="form-group">
+        <label>公演日・場所・その他ご要望</label>
+        <textarea name="message" style="height:120px;resize:vertical;" placeholder="例）2025年8月10日、名古屋 ○○ライブハウス、3曲予定です。" required></textarea>
+      </div>
+      <button type="submit" class="btn-submit">申し込む</button>
+    </form>
   </section>
 
   <footer>
