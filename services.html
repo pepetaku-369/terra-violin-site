@@ -4,21 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>サービス・料金 | TERRAviolin Official Site</title>
-  <meta name="description" content="TERRAのサポートヴァイオリンサービス。1〜2曲¥10,000〜ツアー同行¥100,000〜まで、ライブやイベントに柔軟対応。楽譜なしでも即興演奏可能。">
+  <meta name="description" content="TERRAのサポートヴァイオリンサービス。1〜2曲¥11,000〜ツアー同行¥110,000〜まで、ライブやイベントに柔軟対応。楽譜なしでも即興演奏可能。拠点は名古屋ですが、対応地域は限定していません。">
   <meta name="keywords" content="サポートヴァイオリン, バイオリン演奏依頼, ライブ出演, バンドサポート, 料金, TERRA">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://terra-violin.netlify.app/services">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://terra-violin.netlify.app/services">
   <meta property="og:title" content="サービス・料金 | TERRAviolin Official Site">
-  <meta property="og:description" content="TERRAのサポートヴァイオリンサービス。1〜2曲¥10,000〜ツアー同行¥100,000〜まで柔軟対応。楽譜なしでも即興演奏可能。">
+  <meta property="og:description" content="TERRAのサポートヴァイオリンサービス。1〜2曲¥11,000〜ツアー同行¥110,000〜まで柔軟対応。楽譜なしでも即興演奏可能。対応地域は限定していません。">
   <meta property="og:image" content="https://static.wixstatic.com/media/41d81a_7e309edddf8a4e2c966a3af1fdec5867~mv2.jpg">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:site_name" content="TERRAviolin Official Site">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@terra_violin">
   <meta name="twitter:title" content="サービス・料金 | TERRAviolin Official Site">
-  <meta name="twitter:description" content="TERRAのサポートヴァイオリンサービス。1〜2曲¥10,000〜ツアー同行¥100,000〜まで柔軟対応。楽譜なしでも即興演奏可能。">
+  <meta name="twitter:description" content="TERRAのサポートヴァイオリンサービス。1〜2曲¥11,000〜ツアー同行¥110,000〜まで柔軟対応。楽譜なしでも即興演奏可能。対応地域は限定していません。">
   <meta name="twitter:image" content="https://static.wixstatic.com/media/41d81a_7e309edddf8a4e2c966a3af1fdec5867~mv2.jpg">
   <script type="application/ld+json">{
     "@context": "https://schema.org",
@@ -26,14 +26,14 @@
     "name": "サポートヴァイオリン",
     "provider": {"@type": "Person", "name": "TERRA", "alternateName": "TERRAviolin", "url": "https://terra-violin.netlify.app/"},
     "description": "バンドのライブでヴァイオリンの演奏が欲しい方へ。楽譜なしでも即興演奏で対応します。",
-    "areaServed": {"@type": "City", "name": "名古屋"},
+    "areaServed": {"@type": "Country", "name": "日本"},
     "offers": [
-      {"@type":"Offer","name":"1〜2曲","price":"10000","priceCurrency":"JPY"},
-      {"@type":"Offer","name":"3曲","price":"20000","priceCurrency":"JPY"},
-      {"@type":"Offer","name":"4〜5曲","price":"30000","priceCurrency":"JPY"},
-      {"@type":"Offer","name":"6曲以上","price":"40000","priceCurrency":"JPY"},
-      {"@type":"Offer","name":"1day","price":"60000","priceCurrency":"JPY"},
-      {"@type":"Offer","name":"ツアーライブ同行","price":"100000","priceCurrency":"JPY"}
+      {"@type":"Offer","name":"1〜2曲","price":"11000","priceCurrency":"JPY"},
+      {"@type":"Offer","name":"3曲","price":"22000","priceCurrency":"JPY"},
+      {"@type":"Offer","name":"4〜5曲","price":"33000","priceCurrency":"JPY"},
+      {"@type":"Offer","name":"6曲以上","price":"44000","priceCurrency":"JPY"},
+      {"@type":"Offer","name":"1day","price":"66000","priceCurrency":"JPY"},
+      {"@type":"Offer","name":"ツアーライブ同行","price":"110000","priceCurrency":"JPY"}
     ]
   }</script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -284,6 +284,31 @@
     .social-icons a { color: var(--text-dark); text-decoration: none; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: background 0.2s; }
     .social-icons a:hover { background: #f0f0f0; }
     footer .copyright { font-size: 12px; color: #888; }
+  
+    /* ===== レスポンシブ（タブレット・スマホ） ===== */
+    @media (max-width: 768px) {
+      header { padding: 20px 20px 0; }
+      .site-logo { font-size: 22px; }
+      .search-bar { width: 150px; padding: 6px 10px; }
+      nav { padding: 12px 16px; gap: 20px; flex-wrap: wrap; }
+      .nav-twitter { right: 16px; }
+    }
+
+    @media (max-width: 900px) {
+      .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+      /* 画像の高さを幅連動にする */
+      .service-hero { height: 52vw; max-height: 420px; }
+      .pricing-card img { height: auto; aspect-ratio: 4 / 3; }
+    }
+    @media (max-width: 768px) {
+      .service-hero-title { font-size: 24px; padding: 16px 20px; letter-spacing: 1px; }
+      .service-desc { padding: 36px 20px; }
+      .pricing-section { padding: 16px 16px 44px; }
+      .contact-form-section { padding: 36px 20px; }
+    }
+    @media (max-width: 560px) {
+      .pricing-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -325,6 +350,7 @@
       <li>セットリストと演奏場所をお教え下さい。</li>
       <li>本番前に必ず打ち合わせをさせて下さい。（ぶっつけ本番は不可）</li>
       <li>交通費が片道5,000円を越える場合は別途請求させていただきます。</li>
+      <li>拠点は名古屋ですが、公演場所は全国どこでもご相談ください。</li>
       <li>領収書の必要有無もお教えください。</li>
     </ul>
   </section>
@@ -335,7 +361,7 @@
       <div class="pricing-card">
         <div class="pricing-card-img-wrap">
           <img src="https://static.wixstatic.com/media/41d81a_2c62c17e68f144faaee17cabb4f4db94~mv2.jpg" alt="1~2曲" loading="lazy">
-          <div class="pricing-tag">¥10,000</div>
+          <div class="pricing-tag">¥11,000</div>
         </div>
         <div class="pricing-card-body">
           <div class="pricing-name">1〜2曲</div>
@@ -344,7 +370,7 @@
       <div class="pricing-card">
         <div class="pricing-card-img-wrap">
           <img src="https://static.wixstatic.com/media/41d81a_d0e358e9de2141e9a3098c27655f0f9c~mv2.jpg" alt="3曲" loading="lazy">
-          <div class="pricing-tag">¥20,000</div>
+          <div class="pricing-tag">¥22,000</div>
         </div>
         <div class="pricing-card-body">
           <div class="pricing-name">3曲</div>
@@ -353,7 +379,7 @@
       <div class="pricing-card">
         <div class="pricing-card-img-wrap">
           <img src="https://static.wixstatic.com/media/41d81a_4a58f6458110483ab7e324d0f107651b~mv2.jpg" alt="4~5曲" loading="lazy">
-          <div class="pricing-tag">¥30,000</div>
+          <div class="pricing-tag">¥33,000</div>
         </div>
         <div class="pricing-card-body">
           <div class="pricing-name">4〜5曲</div>
@@ -362,7 +388,7 @@
       <div class="pricing-card">
         <div class="pricing-card-img-wrap">
           <img src="https://static.wixstatic.com/media/41d81a_59741e50520142f290506db047c1f630~mv2.jpg" alt="6曲以上" loading="lazy">
-          <div class="pricing-tag">¥40,000</div>
+          <div class="pricing-tag">¥44,000</div>
         </div>
         <div class="pricing-card-body">
           <div class="pricing-name">6曲以上</div>
@@ -371,7 +397,7 @@
       <div class="pricing-card">
         <div class="pricing-card-img-wrap">
           <img src="https://static.wixstatic.com/media/41d81a_0ecfcaa810d7479a914188334097dcdf~mv2.jpg" alt="1day" loading="lazy">
-          <div class="pricing-tag">¥60,000</div>
+          <div class="pricing-tag">¥66,000</div>
         </div>
         <div class="pricing-card-body">
           <div class="pricing-name">1day</div>
@@ -380,13 +406,15 @@
       <div class="pricing-card">
         <div class="pricing-card-img-wrap">
           <img src="https://static.wixstatic.com/media/41d81a_07f0a65131ca413b9b8062582b58145a~mv2.jpg" alt="ツアーライブ同行" loading="lazy">
-          <div class="pricing-tag">¥100,000〜</div>
+          <div class="pricing-tag">¥110,000〜</div>
         </div>
         <div class="pricing-card-body">
           <div class="pricing-name">ツアーライブ同行</div>
         </div>
       </div>
     </div>
+    <p style="max-width:960px;margin:26px auto 0;font-size:13px;color:#666;line-height:1.9;">※ツアーライブ同行の料金は、同行期間や拘束の程度により変わります。¥110,000〜を目安に、内容に応じてお見積もりします。</p>
+    <p style="max-width:960px;margin:8px auto 0;font-size:13px;color:#666;line-height:1.9;">※表示料金はすべて税込です。</p>
   </section>
 
   <!-- CONTACT FORM -->
@@ -401,12 +429,12 @@
         <label>プラン選択</label>
         <select name="plan" required style="width:100%;border:1px solid #ddd;border-radius:4px;padding:10px 14px;font-size:14px;font-family:'Noto Sans JP',sans-serif;outline:none;transition:border-color 0.2s;background:#fff;color:#2a2a2a;">
           <option value="" disabled selected>選択してください</option>
-          <option value="1〜2曲（¥10,000）">1〜2曲（¥10,000）</option>
-          <option value="3曲（¥20,000）">3曲（¥20,000）</option>
-          <option value="4〜5曲（¥30,000）">4〜5曲（¥30,000）</option>
-          <option value="6曲以上（¥40,000）">6曲以上（¥40,000）</option>
-          <option value="1day（¥60,000）">1day（¥60,000）</option>
-          <option value="ツアーライブ同行（¥100,000〜）">ツアーライブ同行（¥100,000〜）</option>
+          <option value="1〜2曲（¥11,000）">1〜2曲（¥11,000）</option>
+          <option value="3曲（¥22,000）">3曲（¥22,000）</option>
+          <option value="4〜5曲（¥33,000）">4〜5曲（¥33,000）</option>
+          <option value="6曲以上（¥44,000）">6曲以上（¥44,000）</option>
+          <option value="1day（¥66,000）">1day（¥66,000）</option>
+          <option value="ツアーライブ同行（¥110,000〜）">ツアーライブ同行（¥110,000〜）</option>
         </select>
       </div>
 

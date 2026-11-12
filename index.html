@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TERRAviolin Official Site | ヴァイオリニスト TERRA</title>
-  <meta name="description" content="ヴァイオリニスト TERRAのオフィシャルサイト。バンドライブへのサポートヴァイオリン出演、オリジナル楽曲演奏など、柔軟に対応します。お気軽にお問い合わせください。">
-  <meta name="keywords" content="TERRAviolin, TERRA, ヴァイオリン, バイオリン, サポートヴァイオリン, ライブ, バンド, 演奏, 名古屋">
+  <title>サポートヴァイオリン TERRA | 即興・譜面なしOK — TERRAviolin Official Site</title>
+  <meta name="description" content="サポートヴァイオリン専門のヴァイオリニスト、TERRAの公式サイト。即興演奏で、譜面なしでも対応できます。バンドライブへのサポート出演、オリジナル楽曲演奏など。拠点は名古屋、公演場所は全国からご相談ください。">
+  <meta name="keywords" content="TERRAviolin, TERRA, サポートヴァイオリン, ヴァイオリン, バイオリン, 即興演奏, 譜面なし, バンドサポート, ライブサポート, 演奏依頼">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://terra-violin.netlify.app/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://terra-violin.netlify.app/">
-  <meta property="og:title" content="TERRAviolin Official Site | ヴァイオリニスト TERRA">
-  <meta property="og:description" content="ヴァイオリニスト TERRAのオフィシャルサイト。バンドライブへのサポートヴァイオリン出演、オリジナル楽曲演奏など、柔軟に対応します。">
+  <meta property="og:title" content="サポートヴァイオリン TERRA | 即興・譜面なしOK — TERRAviolin Official Site">
+  <meta property="og:description" content="サポートヴァイオリン専門のヴァイオリニスト、TERRAの公式サイト。即興演奏で、譜面なしでも対応できます。">
   <meta property="og:image" content="https://static.wixstatic.com/media/41d81a_30e334d47efe456f838bd2b6094b4151~mv2.jpg">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:site_name" content="TERRAviolin Official Site">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@terra_violin">
-  <meta name="twitter:title" content="TERRAviolin Official Site | ヴァイオリニスト TERRA">
-  <meta name="twitter:description" content="ヴァイオリニスト TERRAのオフィシャルサイト。バンドライブへのサポートヴァイオリン出演、柔軟に対応します。">
+  <meta name="twitter:title" content="サポートヴァイオリン TERRA | 即興・譜面なしOK — TERRAviolin Official Site">
+  <meta name="twitter:description" content="サポートヴァイオリン専門のヴァイオリニスト、TERRAの公式サイト。即興演奏で、譜面なしでも対応できます。">
   <meta name="twitter:image" content="https://static.wixstatic.com/media/41d81a_30e334d47efe456f838bd2b6094b4151~mv2.jpg">
   <script type="application/ld+json">{
     "@context": "https://schema.org",
@@ -27,7 +27,7 @@
     "alternateName": "TERRAviolin",
     "url": "https://terra-violin.netlify.app/",
     "image": "https://static.wixstatic.com/media/41d81a_30e334d47efe456f838bd2b6094b4151~mv2.jpg",
-    "description": "名古屋を拠点に活動するヴァイオリニスト。バンドライブへのサポートヴァイオリン出演、オリジナル楽曲演奏など幅広く対応。愛知県立芸術大学音楽学部卒業。",
+    "description": "サポートヴァイオリン専門のヴァイオリニスト。即興演奏で譜面なしでも対応可。バンドライブへのサポート出演、オリジナル楽曲演奏など。拠点は名古屋、公演は全国対応（要相談）。愛知県立芸術大学音楽学部卒業。",
     "email": "violin.tkssbkw@gmail.com",
     "jobTitle": "ヴァイオリニスト",
     "knowsAbout": ["ヴァイオリン", "クラシック音楽", "バンドサポート", "即興演奏", "劇伴音楽"],
@@ -35,7 +35,7 @@
       {"@type": "CollegeOrUniversity", "name": "愛知県立芸術大学"},
       {"@type": "EducationalOrganization", "name": "甲陽音楽学院名古屋校"}
     ],
-    "sameAs": ["https://twitter.com/terra_violin"]
+    "sameAs": ["https://twitter.com/terra_violin", "https://share-musica.com/users/178"]
   }</script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
@@ -385,6 +385,26 @@
     ::view-transition-new(root) {
       animation: 300ms ease tv-fade-in;
     }
+  
+    /* ===== レスポンシブ（タブレット・スマホ） ===== */
+    @media (max-width: 900px) {
+      .service-content, .contact-content { width: 62%; }
+      /* スマホ・タブレットでは写真を画面いっぱい（上下・左右）に広げ、画面サイズに連動させる */
+      .page-bg { position: fixed; inset: 0; height: 100vh; height: 100dvh; transform: none; }
+      .page-bg img { object-position: center 15%; }
+      /* 写真の明るい部分でもヘッダーとメニューが読めるように */
+      header { background: linear-gradient(to bottom, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.28) 100%); }
+      nav { background: rgba(0,0,0,0.30); }
+    }
+    @media (max-width: 768px) {
+      header { padding: 16px 20px; }
+      .site-logo { font-size: 22px; }
+      .search-bar { width: 150px; padding: 6px 10px; }
+      nav { top: 64px; padding: 8px 16px; gap: 18px; flex-wrap: wrap; }
+      .nav-twitter { position: static; }
+      .service-content, .contact-content { width: 100%; margin-left: 0; padding: 44px 24px; }
+      .service-section, .contact-section { min-height: 0; }
+    }
   </style>
 </head>
 <body>
@@ -425,7 +445,7 @@
     <section class="hero" aria-label="ヒーロー">
       <div class="hero-content">
         <h1 class="hero-title">Welcome to<br>TERRAviolin official site</h1>
-        <p class="hero-subtitle">名古屋を拠点に活動するヴァイオリニスト TERRA の公式サイトです。</p>
+        <p class="hero-subtitle">サポートヴァイオリン専門のヴァイオリニスト、TERRAの公式サイトです。</p>
         <a class='btn-outline' href='/profile'>プロフィールを見る &nbsp;›</a>
       </div>
     </section>
